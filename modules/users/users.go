@@ -16,9 +16,9 @@ type User struct {
 
 // body request
 type UserRegisterReq struct {
-	Email    string `db:"email" json:"email"`
-	Username string `db:"username" json:"username"`
-	Password string `db:"password" json:"password"`
+	Email    string `db:"email" json:"email" form:"email"`
+	Username string `db:"username" json:"username" form:"username"`
+	Password string `db:"password" json:"password" form:"password"`
 }
 
 func (u *UserRegisterReq) CheckEmail() bool {

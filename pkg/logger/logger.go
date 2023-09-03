@@ -66,13 +66,15 @@ func (l *logall) SaveLog() {
 }
 
 func (l *logall) SetQuery(c *fiber.Ctx) {
-	var query any
-	if err := c.QueryParser(&query); err != nil {
+	// var query interface{}
+	var body any
+	if err := c.QueryParser(&body); err != nil {
 		log.Printf("error query parser: %v", err)
 	}
-	l.Query = query
+	l.Query = body
 }
 func (l *logall) SetBody(c *fiber.Ctx) {
+	// var body interface{}
 	var body any
 	if err := c.BodyParser(&body); err != nil {
 		log.Printf("error body parser: %v", err)

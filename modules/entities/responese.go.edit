@@ -1,0 +1,79 @@
+package entities
+
+import (
+	"github.com/gofiber/fiber/v2"
+
+	"cpshop/pkg/logger"
+)
+
+type IResponse interface {
+	Success(code int, data any) IResponse
+	Error(code int, traceID, msg string) IResponse
+	Res() error
+}
+
+type Response struct {
+	StatusCode int
+	Data       any
+	ErrorRes   *ErrorResponse
+	Context    *fiber.Ctx
+	IsError    bool
+}
+
+type ErrorResponse struct {
+	TraceId string `json:"trace_id"`
+	Msg     string `json:"message"`
+}
+
+func NewResponse(c *fiber.Ctx) IResponse {
+	return &Response{
+		Context: c,
+	}
+
+}
+
+func (r *Response) Success(code int, data any) IResponse {
+	r.StatusCode = code
+
+	// แปลงค่า r.Data เป็น map[string]interface{} ด้วย type assertion
+	dataMap, ok := data.(map[string]interface{})
+	if !ok {
+		// การแปลงประเภทไม่สำเร็จ ให้ทำอะไรก็ได้ตามที่คุณต้องการ
+		// ตัวอย่าง: บันทึกข้อผิดพลาดหรือส่งคำตอบข้อผิดพลาดกลับไปยังไคลเอ็นต์
+		return r.Error(fiber.StatusBadRequest, "", "Data is not in the expected format")
+	}
+
+	// ส่ง map ที่แปลงแล้วไปยัง logger.InitLog
+	logger.InitLog(r.Context, dataMap, r.StatusCode).PrintLog().SaveLog()
+	return r
+}
+
+func (r *Response) Error(code int, traceID, msg string) IResponse {
+	r.StatusCode = code
+	r.ErrorRes = &ErrorResponse{
+		TraceId: traceID,
+		Msg:     msg,
+	}
+	r.IsError = true
+
+	// แปลงค่า r.ErrorRes เป็น map[string]interface{} ด้วย type assertion
+	errorResMap := map[string]interface{}{
+		"trace_id": r.ErrorRes.TraceId,
+		"message":  r.ErrorRes.Msg,
+	}
+
+	// ส่ง map ที่แปลงแล้วไปยัง logger.InitLog
+	logger.InitLog(r.Context, errorResMap, r.StatusCode).PrintLog().SaveLog()
+	return r
+}
+
+func (r *Response) Res() error {
+	// use any เพราะ type interface เป็นอะไรก็ได้
+	return r.Context.Status(r.StatusCode).JSON(func() any {
+		if r.IsError {
+			// return & เพราะจะได้อ้างอิง address นอก packages
+			return &r.ErrorRes
+		}
+		return &r.Data
+	}())
+}

@@ -1,21 +1,37 @@
-package userusecase
+package userUsecase
 
 import (
-	"server/config"
-	"server/modules/users/userRepositories"
+	"cpshop/config"
+	"cpshop/modules/users"
+	"cpshop/modules/users/userRepositories"
 )
 
 type IuserUsercase interface {
+	InsertCustomer(uq *users.UserRegisterReq) (*users.UserPasssport, error)
 }
 
 type userUsecase struct {
-	cfg              config.Icongig
+	cfg              config.Iconfig
 	userrepositories userRepositories.IusersRepository
 }
 
-func UserUsecase(cfg config.Icongig, userrepositories userRepositories.IusersRepository) IuserUsercase {
+func UserUsecase(cfg config.Iconfig, userrepositories userRepositories.IusersRepository) IuserUsercase {
 	return &userUsecase{
 		cfg:              cfg,
 		userrepositories: userrepositories,
 	}
+}
+
+func (uu *userUsecase) InsertCustomer(uq *users.UserRegisterReq) (*users.UserPasssport, error) {
+	// Hashing a password
+	if err := uq.BcrypPass(); err != nil {
+		return nil, err
+	}
+
+	// Insert user
+	result, err := uu.userrepositories.InsertUsers(uq, false)
+	if err != nil {
+		return nil, err
+	}
+	return result, nil
 }

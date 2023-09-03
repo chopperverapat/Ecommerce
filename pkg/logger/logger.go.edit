@@ -1,0 +1,86 @@
+package logger
+
+import (
+	"fmt"
+	"log"
+	"os"
+	"strings"
+	"time"
+
+	"github.com/gofiber/fiber/v2"
+
+	"cpshop/pkg/utils"
+)
+
+type ILog interface {
+	SetQuery(c *fiber.Ctx)
+	SetBody(c *fiber.Ctx)
+	SetResponse(res map[string]interface{})
+	PrintLog() ILog
+	SaveLog()
+}
+
+type logall struct {
+	Time       string                 `json:"time"`
+	Ip         string                 `json:"ip"`
+	Method     string                 `json:"method"`
+	StatusCode int                    `json:"status_code"`
+	Path       string                 `json:"path"`
+	Query      map[string]interface{} `json:"query"`
+	Body       map[string]interface{} `json:"body"`
+	Response   map[string]interface{} `json:"response"`
+}
+
+func InitLog(c *fiber.Ctx, res map[string]interface{}, code int) ILog {
+	log := &logall{
+		Time:       time.Now().Local().Format("2006-01-02 15:04:05"),
+		Ip:         c.IP(),
+		Method:     c.Method(),
+		Path:       c.Path(),
+		StatusCode: code,
+	}
+	log.SetQuery(c)
+	log.SetBody(c)
+	log.SetResponse(res)
+	return log
+}
+
+func (l *logall) PrintLog() ILog {
+	utils.Debug(l)
+	return l
+}
+
+func (l *logall) SaveLog() {
+	logtofile := utils.Outputtofile(l)
+	filename := fmt.Sprintf("./assets/logs/log-%v.log", strings.ReplaceAll(time.Now().Format("2006-01-02"), "-", ""))
+	file, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	if err != nil {
+		log.Println("error open file: %v", err)
+	}
+	defer file.Close()
+	file.WriteString(string(logtofile) + "\n")
+}
+
+func (l *logall) SetQuery(c *fiber.Ctx) {
+	query := make(map[string]interface{})
+	if err := c.QueryParser(&query); err != nil {
+		log.Printf("error query parser: %v", err)
+	}
+	l.Query = query
+}
+
+func (l *logall) SetBody(c *fiber.Ctx) {
+	body := make(map[string]interface{})
+	if err := c.BodyParser(&body); err != nil {
+		log.Printf("error body parser: %v", err)
+	}
+	l.Body = body
+	switch l.Path {
+	case "/api/v2/signup":
+		l.Body = make(map[string]interface{}) // เริ่มต้นด้วย map ว่าง
+	}
+}
+
+func (l *logall) SetResponse(res map[string]interface{}) {
+	l.Response = res
+}

@@ -49,6 +49,7 @@ func (s *server) Start() {
 	// s ต้องส่ง * ไปให้ InitModule แต่เราประกาศ s *server ไปแล้ว จึงใช้ s ได้เลย
 	modules := InitModuleFactory(v1, s, mid)
 	modules.MonitorModule()
+	modules.UsersModules()
 
 	s.app.Use(mid.RouterCheck())
 

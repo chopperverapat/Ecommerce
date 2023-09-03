@@ -1,0 +1,9 @@
+{"time":"2023-09-03 23:49:46","ip":"127.0.0.1","method":"GET","status_code":404,"path":"/api/v2/ddd","query":null,"body":null,"response":{"trace_id":"middlware-001","message":"router not found"}}
+{"time":"2023-09-03 23:49:50","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2/","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-03 23:52:38","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-03 23:52:47","ip":"127.0.0.1","method":"POST","status_code":404,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"middlware-001","message":"router not found"}}
+{"time":"2023-09-03 23:54:14","ip":"127.0.0.1","method":"POST","status_code":404,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"middlware-001","message":"router not found"}}
+{"time":"2023-09-03 23:55:03","ip":"127.0.0.1","method":"POST","status_code":404,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"middlware-001","message":"router not found"}}
+{"time":"2023-09-03 23:56:36","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-03 23:56:40","ip":"127.0.0.1","method":"GET","status_code":404,"path":"/api/v2/k","query":null,"body":null,"response":{"trace_id":"middlware-001","message":"router not found"}}
+{"time":"2023-09-03 23:56:43","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}

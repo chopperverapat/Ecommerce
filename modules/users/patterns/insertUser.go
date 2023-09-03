@@ -2,10 +2,12 @@ package patterns
 
 import (
 	"context"
+	"cpshop/modules/users"
 	"encoding/json"
 	"fmt"
-	"server/modules/users"
 	"time"
+
+	"github.com/jmoiron/sqlx"
 )
 
 //factory to seperate admin, customer
@@ -20,7 +22,7 @@ type Iinsertuser interface {
 type userrequest struct {
 	id      string
 	bodyreq *users.UserRegisterReq
-	db      *sqlx.db
+	db      *sqlx.DB
 }
 
 type admin struct {
@@ -31,7 +33,7 @@ type customer struct {
 	*userrequest
 }
 
-func InsertUsers(db *sqlx.db, body *users.UserRegisterReq, isAdmin bool) Iinsertuser {
+func InsertUsers(db *sqlx.DB, body *users.UserRegisterReq, isAdmin bool) Iinsertuser {
 	if isAdmin {
 		return newadmin(db, body)
 	}
@@ -39,7 +41,7 @@ func InsertUsers(db *sqlx.db, body *users.UserRegisterReq, isAdmin bool) Iinsert
 
 }
 
-func newCustomer(db *sqlx.db, body *users.UserRegisterRe) Iinsertuser {
+func newCustomer(db *sqlx.DB, body *users.UserRegisterReq) Iinsertuser {
 	return &customer{
 		userrequest: &userrequest{
 			bodyreq: body,
@@ -48,7 +50,7 @@ func newCustomer(db *sqlx.db, body *users.UserRegisterRe) Iinsertuser {
 	}
 }
 
-func newadmin(db *sqlx.db, body *users.UserRegisterRe) Iinsertuser {
+func newadmin(db *sqlx.DB, body *users.UserRegisterReq) Iinsertuser {
 	return &admin{
 		userrequest: &userrequest{
 			bodyreq: body,
@@ -58,21 +60,21 @@ func newadmin(db *sqlx.db, body *users.UserRegisterRe) Iinsertuser {
 }
 func (uq *userrequest) Customer() (Iinsertuser, error) {
 	// wait time
-	ctx, cancle := context.WithTimeout(context.Background(), time.Second*5)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	// if failed retrun cancle and give resresource to server
-	defer cancle()
+	defer cancel()
+
 	// assume role_id 1
 	query := `
-	INSERT NTO "users"(
-		"username"
-		"email"
-		"password"
+	INSERT INTO "users" (
+		"email",
+		"password",
+		"username",
 		"role_id"
-		)
+	)
 	VALUES
-		($1, $2, $3, 1)
-	RETURNING "id";
-	`
+		($1, $2, $3, 2)
+	RETURNING "id";`
 	if err := uq.db.QueryRowContext(
 		ctx,
 		query,
@@ -91,7 +93,7 @@ func (uq *userrequest) Customer() (Iinsertuser, error) {
 			return nil, fmt.Errorf("insert user failed: %v", err)
 		}
 	}
-	return nil, nil
+	return uq, nil
 }
 
 func (uq *userrequest) Admin() (Iinsertuser, error) {
@@ -100,19 +102,19 @@ func (uq *userrequest) Admin() (Iinsertuser, error) {
 func (uq *userrequest) Result() (*users.UserPasssport, error) {
 	// query db to json after pass to struct
 	query := `
-	SELECT 
-			json_build_boj(
-				'user': "t",
-				'token': NULL
-			)
+	SELECT
+		json_build_object(
+			'user', "t",
+			'token', NULL
+		)
 	FROM (
-		SELECT 
-				"u"."id"
-				"u"."username"
-				"u"."password"
-				"u"."role_id"
-		FROM users "u"
-		HERE "u"."id" = $1
+		SELECT
+			"u"."id",
+			"u"."email",
+			"u"."username",
+			"u"."role_id"
+		FROM "users" "u"
+		WHERE "u"."id" = $1
 	) AS "t"`
 
 	// query json bytes

@@ -1,0 +1,47 @@
+{"time":"2023-09-04 00:08:47","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 00:13:29","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 00:16:01","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 00:16:04","ip":"127.0.0.1","method":"POST","status_code":500,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"insert user failed: ERROR: syntax error at or near \"\"email\"\" (SQLSTATE 42601)"}}
+{"time":"2023-09-04 00:23:25","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"failed to decode: schema: interface must be a pointer to struct"}}
+{"time":"2023-09-04 00:23:43","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"failed to decode: schema: interface must be a pointer to struct"}}
+{"time":"2023-09-04 00:23:44","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"failed to decode: schema: interface must be a pointer to struct"}}
+{"time":"2023-09-04 00:24:07","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"failed to decode: schema: interface must be a pointer to structCP"}}
+{"time":"2023-09-04 00:24:35","ip":"127.0.0.1","method":"POST","status_code":500,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"insert user failed: ERROR: syntax error at or near \"\"email\"\" (SQLSTATE 42601)"}}
+{"time":"2023-09-04 00:24:52","ip":"127.0.0.1","method":"POST","status_code":500,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"insert user failed: ERROR: syntax error at or near \"\"email\"\" (SQLSTATE 42601)"}}
+{"time":"2023-09-04 00:27:00","ip":"127.0.0.1","method":"POST","status_code":500,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"insert user failed: ERROR: syntax error at or near \")\" (SQLSTATE 42601)"}}
+{"time":"2023-09-04 00:28:59","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"username has been used"}}
+{"time":"2023-09-04 00:29:17","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 00:29:24","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"Email is invalid"}}
+{"time":"2023-09-04 00:35:40","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"username has been used"}}
+{"time":"2023-09-04 00:39:13","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"username has been used"}}
+{"time":"2023-09-04 00:51:17","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"username has been used"}}
+{"time":"2023-09-04 00:51:25","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"username has been used"}}
+{"time":"2023-09-04 00:51:29","ip":"127.0.0.1","method":"POST","status_code":500,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"get user failed: ERROR: syntax error at or near \":\" (SQLSTATE 42601)"}}
+{"time":"2023-09-04 00:51:43","ip":"127.0.0.1","method":"POST","status_code":500,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"get user failed: ERROR: syntax error at or near \":\" (SQLSTATE 42601)"}}
+{"time":"2023-09-04 01:02:13","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"username has been used"}}
+{"time":"2023-09-04 01:02:20","ip":"127.0.0.1","method":"POST","status_code":201,"path":"/api/v2/users/signup","query":null,"body":null,"response":{}}
+{"time":"2023-09-04 01:04:59","ip":"127.0.0.1","method":"POST","status_code":201,"path":"/api/v2/users/signup","query":null,"body":null,"response":{}}
+{"time":"2023-09-04 01:05:07","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"Email is invalid"}}
+{"time":"2023-09-04 01:05:14","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 01:05:24","ip":"127.0.0.1","method":"POST","status_code":201,"path":"/api/v2/users/signup","query":null,"body":null,"response":{}}
+{"time":"2023-09-04 01:11:00","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 01:11:10","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":null,"response":{}}
+{"time":"2023-09-04 01:12:08","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 01:12:09","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 01:17:29","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 01:17:36","ip":"127.0.0.1","method":"POST","status_code":404,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"middlware-001","message":"router not found"}}
+{"time":"2023-09-04 01:17:42","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 01:22:45","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 01:28:32","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 01:29:20","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 01:30:27","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 01:55:47","ip":"127.0.0.1","method":"GET","status_code":400,"path":"/api/v2","query":{},"body":{},"response":{"message":"Data is not in the expected format","trace_id":""}}
+{"time":"2023-09-04 01:57:03","ip":"127.0.0.1","method":"GET","status_code":400,"path":"/api/v2","query":{},"body":{},"response":{"message":"Data is not in the expected format","trace_id":""}}
+{"time":"2023-09-04 01:57:06","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":{},"body":{},"response":{"message":"email has been used","trace_id":"users-001"}}
+{"time":"2023-09-04 01:57:13","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":{},"body":{},"response":{"message":"Data is not in the expected format","trace_id":""}}
+{"time":"2023-09-04 01:57:58","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":{},"body":{},"response":{"message":"Data is not in the expected format","trace_id":""}}
+{"time":"2023-09-04 01:57:59","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":{},"body":{},"response":{"message":"email has been used","trace_id":"users-001"}}
+{"time":"2023-09-04 01:58:13","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":{},"body":{},"response":{"message":"Data is not in the expected format","trace_id":""}}
+{"time":"2023-09-04 01:59:19","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 01:59:22","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 01:59:30","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":null,"response":{}}
