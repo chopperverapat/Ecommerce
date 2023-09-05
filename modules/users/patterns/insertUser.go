@@ -78,9 +78,9 @@ func (uq *userrequest) Customer() (Iinsertuser, error) {
 	if err := uq.db.QueryRowContext(
 		ctx,
 		query,
-		uq.bodyreq.Username,
 		uq.bodyreq.Email,
 		uq.bodyreq.Password,
+		uq.bodyreq.Username,
 	// scan use with sql RETURNING
 	// return id db to userrequest struct
 	).Scan(&uq.id); err != nil {
@@ -93,6 +93,7 @@ func (uq *userrequest) Customer() (Iinsertuser, error) {
 			return nil, fmt.Errorf("insert user failed: %v", err)
 		}
 	}
+	// fmt.Printf("user_insert: %v,\n", uq)
 	return uq, nil
 }
 
@@ -101,36 +102,40 @@ func (uq *userrequest) Admin() (Iinsertuser, error) {
 }
 func (uq *userrequest) Result() (*users.UserPasssport, error) {
 	// query db to json after pass to struct
-	query := `
-	SELECT
-		json_build_object(
-			'user', "t",
-			'token', NULL
-		)
-	FROM (
+	if uq != nil && uq.bodyreq != nil {
+		query := `
 		SELECT
-			"u"."id",
-			"u"."email",
-			"u"."username",
-			"u"."role_id"
-		FROM "users" "u"
-		WHERE "u"."id" = $1
-	) AS "t"`
+			json_build_object(
+				'user', "t",
+				'token', NULL
+			)
+		FROM (
+			SELECT
+				"u"."id",
+				"u"."email",
+				"u"."username",
+				"u"."role_id"
+			FROM "users" "u"
+			WHERE "u"."id" = $1
+		) AS "t"`
 
-	// query json bytes
-	data := make([]byte, 0)
-	//Get = query 1 row
-	//Select = query multi rows
+		// query json bytes
+		data := make([]byte, 0)
+		//Get = query 1 row
+		//Select = query multi rows
 
-	//data to recieve query
-	if err := uq.db.Get(&data, query, uq.id); err != nil {
-		return nil, fmt.Errorf("get user failed: %v", err)
+		//data to recieve query
+		if err := uq.db.Get(&data, query, uq.id); err != nil {
+			return nil, fmt.Errorf("get user failed: %v", err)
+		}
+		// create new struct to recieve byte=> json to struct
+		user := new(users.UserPasssport)
+		// data to struct user by unmarshal
+		if err := json.Unmarshal(data, &user); err != nil {
+			return nil, fmt.Errorf("unmarshal user failed: %v", err)
+		}
+		// fmt.Printf("user_select: %v,\n", user)
+		return user, nil
 	}
-	// create new struct to recieve byte=> json to struct
-	user := new(users.UserPasssport)
-	// data to struct user by unmarshal
-	if err := json.Unmarshal(data, &user); err != nil {
-		return nil, fmt.Errorf("unmarshal user failed: %v", err)
-	}
-	return user, nil
+	return nil, fmt.Errorf("UserRequest is nil or isAdmin is true")
 }

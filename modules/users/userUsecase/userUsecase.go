@@ -33,5 +33,6 @@ func (uu *userUsecase) InsertCustomer(uq *users.UserRegisterReq) (*users.UserPas
 	if err != nil {
 		return nil, err
 	}
+	// fmt.Printf("result_usecase: %v,\n", result)
 	return result, nil
 }

@@ -36,7 +36,7 @@ func (r *Response) Success(code int, data any) IResponse {
 	r.StatusCode = code
 	r.Data = data
 	// func InitLog รับ res any เลยส่ง &r.Data จะชัวกว่า และ เร็วกว่าส่ง r.Data
-	logger.InitLog(r.Context, &r.Data, r.StatusCode).PrintLog().SaveLog()
+	logger.InitLog(r.Context, &r.Data).PrintLog().SaveLog()
 	return r
 }
 func (r *Response) Error(code int, traceID, msg string) IResponse {
@@ -46,7 +46,7 @@ func (r *Response) Error(code int, traceID, msg string) IResponse {
 		Msg:     msg,
 	}
 	r.IsError = true
-	logger.InitLog(r.Context, &r.ErrorRes, r.StatusCode).PrintLog().SaveLog()
+	logger.InitLog(r.Context, &r.ErrorRes).PrintLog().SaveLog()
 	return r
 }
 

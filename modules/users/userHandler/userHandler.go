@@ -56,6 +56,7 @@ func (uh *userhandler) SignupCustomer(c *fiber.Ctx) error {
 
 	// insert call suecase
 	insertuser, err := uh.userUsecase.InsertCustomer(reqBody)
+	// fmt.Printf("insertuser: %v,\n", insertuser)
 	if err != nil {
 		switch err.Error() {
 		case "username has been used":
@@ -78,5 +79,6 @@ func (uh *userhandler) SignupCustomer(c *fiber.Ctx) error {
 			).Res()
 		}
 	}
-	return entities.NewResponse(c).Success(fiber.StatusOK, insertuser).Res()
+	// fmt.Printf("email: %v,\n username: %v\n", reqBody.Email, reqBody.Username)
+	return entities.NewResponse(c).Success(fiber.StatusCreated, insertuser).Res()
 }

@@ -33,13 +33,13 @@ type logall struct {
 
 // any จะได้ flexible ในการใช้
 
-func InitLog(c *fiber.Ctx, res any, code int) ILog {
+func InitLog(c *fiber.Ctx, res any) ILog {
 	log := &logall{
 		Time:       time.Now().Local().Format("2006-01-02 15:04:05"),
 		Ip:         c.IP(),
 		Method:     c.Method(),
 		Path:       c.Path(),
-		StatusCode: code,
+		StatusCode: c.Response().StatusCode(),
 	}
 	log.SetQuery(c)
 	log.SetBody(c)
@@ -59,30 +59,30 @@ func (l *logall) SaveLog() {
 	filename := fmt.Sprintf("./assets/logs/log-%v.log", strings.ReplaceAll(time.Now().Format("2006-01-02"), "-", ""))
 	file, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
-		log.Println("error open file: %v", err)
+		log.Fatalf("error open file: %v", err)
 	}
 	defer file.Close()
 	file.WriteString(string(logtofile) + "\n")
 }
 
 func (l *logall) SetQuery(c *fiber.Ctx) {
-	// var query interface{}
-	var body any
+	var body map[string]interface{}
+	// var body any
 	if err := c.QueryParser(&body); err != nil {
 		log.Printf("error query parser: %v", err)
 	}
 	l.Query = body
 }
 func (l *logall) SetBody(c *fiber.Ctx) {
-	// var body interface{}
-	var body any
+	var body map[string]interface{}
+	// var body any
 	if err := c.BodyParser(&body); err != nil {
 		log.Printf("error body parser: %v", err)
 	}
-	l.Body = body
 	switch l.Path {
-	case "/api/v2/signup":
-		l.Body = ""
+	case "/api/v2/users/signup":
+		l.Body = "Cant show credential !!!!"
+		// l.Body = body
 	default:
 		l.Body = body
 	}

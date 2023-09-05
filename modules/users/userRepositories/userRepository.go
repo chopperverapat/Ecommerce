@@ -49,5 +49,6 @@ func (ur *userrepositories) InsertUsers(uq *users.UserRegisterReq, isAdmin bool)
 	if err != nil {
 		return nil, err
 	}
+	// fmt.Printf("userresult_repo: %v,\n", userresult)
 	return userresult, nil
 }

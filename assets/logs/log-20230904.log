@@ -45,3 +45,42 @@
 {"time":"2023-09-04 01:59:19","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
 {"time":"2023-09-04 01:59:22","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"email has been used"}}
 {"time":"2023-09-04 01:59:30","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":null,"response":{}}
+{"time":"2023-09-04 21:33:43","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 21:33:48","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 21:34:00","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":null,"response":{}}
+{"time":"2023-09-04 21:36:58","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 21:37:01","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 21:37:08","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 21:37:16","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":null,"response":{}}
+{"time":"2023-09-04 21:38:37","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 21:38:48","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":null,"response":{}}
+{"time":"2023-09-04 21:40:33","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 21:40:41","ip":"127.0.0.1","method":"POST","status_code":201,"path":"/api/v2/users/signup","query":null,"body":null,"response":{}}
+{"time":"2023-09-04 21:43:27","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 21:43:46","ip":"127.0.0.1","method":"POST","status_code":201,"path":"/api/v2/users/signup","query":null,"body":null,"response":{}}
+{"time":"2023-09-04 21:44:32","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 21:44:41","ip":"127.0.0.1","method":"POST","status_code":201,"path":"/api/v2/users/signup","query":null,"body":null,"response":{}}
+{"time":"2023-09-04 21:45:16","ip":"127.0.0.1","method":"POST","status_code":400,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 21:45:24","ip":"127.0.0.1","method":"POST","status_code":201,"path":"/api/v2/users/signup","query":null,"body":null,"response":{}}
+{"time":"2023-09-04 22:42:23","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 22:42:39","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":"Cant show credential !!!!","response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 22:42:50","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":"Cant show credential !!!!","response":{}}
+{"time":"2023-09-04 22:43:28","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 22:43:35","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":null,"response":{}}
+{"time":"2023-09-04 22:54:09","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 22:54:14","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":null,"response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 22:54:23","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":null,"response":{}}
+{"time":"2023-09-04 23:27:12","ip":"127.0.0.1","method":"GET","status_code":200,"path":"/api/v2","query":null,"body":null,"response":{"name":"cp-shop","version":"v0.1.0"}}
+{"time":"2023-09-04 23:27:17","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":"Cant show credential !!!!","response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 23:27:38","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":"Cant show credential !!!!","response":{}}
+{"time":"2023-09-04 23:29:19","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":"Cant show credential !!!!","response":{}}
+{"time":"2023-09-04 23:30:13","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":"Cant show credential !!!!","response":{}}
+{"time":"2023-09-04 23:32:05","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":"Cant show credential !!!!","response":{"trace_id":"users-001","message":"email has been used"}}
+{"time":"2023-09-04 23:32:17","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":"Cant show credential !!!!","response":{}}
+{"time":"2023-09-04 23:32:51","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":"Cant show credential !!!!","response":{}}
+{"time":"2023-09-04 23:34:04","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":"Cant show credential !!!!","response":{}}
+{"time":"2023-09-04 23:49:19","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":"Cant show credential !!!!","response":{}}
+{"time":"2023-09-04 23:49:28","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":"Cant show credential !!!!","response":{"trace_id":"users-001","message":"username has been used"}}
+{"time":"2023-09-04 23:49:37","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":"Cant show credential !!!!","response":{}}
+{"time":"2023-09-04 23:59:09","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":"Cant show credential !!!!","response":{"trace_id":"users-001","message":"username has been used"}}
+{"time":"2023-09-04 23:59:15","ip":"127.0.0.1","method":"POST","status_code":200,"path":"/api/v2/users/signup","query":null,"body":"Cant show credential !!!!","response":{}}

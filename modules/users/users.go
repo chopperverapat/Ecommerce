@@ -16,9 +16,9 @@ type User struct {
 
 // body request
 type UserRegisterReq struct {
-	Email    string `db:"email" json:"email" form:"email"`
-	Username string `db:"username" json:"username" form:"username"`
+	Email    string `db:"email" json:"emai" form:"email"`
 	Password string `db:"password" json:"password" form:"password"`
+	Username string `db:"username" json:"username" form:"username"`
 }
 
 func (u *UserRegisterReq) CheckEmail() bool {
@@ -40,8 +40,8 @@ func (u *UserRegisterReq) BcrypPass() error {
 }
 
 type UserPasssport struct {
-	user      *User
-	usertoken *UserToken
+	User  *User      `json:"user"`
+	Token *UserToken `json:"token"`
 }
 
 type UserToken struct {
